@@ -1,4 +1,4 @@
-#TechTalk
+# TechTalk
 
 Hey, bevor du zum TechTalk-django kommst, würde ich dich bitten, schonmal folgende Dinge zu testen & beachten.
 
@@ -15,7 +15,7 @@ als Student müsst ihr auch nichts zahlen - gilt auch für
     Dort könnt ihr durch das Installieren von Paketen den Editor in einen Django-Editor verwandeln. 
     
     
-##Geplanter Ablauf
+## Geplanter Ablauf
 
 1. Was ist Django & Bootstrap? - 10Min
 
@@ -34,7 +34,7 @@ als Student müsst ihr auch nichts zahlen - gilt auch für
     
 5. Abschluss, Verweis auf Projekt der Freitagsrunde: Community der Fakultät IV - 5Min   
     
-##PreSetup:
+## PreSetup:
 
 Stell sicher, dass du Python3 installiert hast. Dazu öffne dein Terminal und gib ein ```python -V```. Es mag sein, dass manche von euch sowhol Python 2 als 
 auch PYthon3 installiert haben. Falls das der Fall ist, dann einfach ```python3 -V``` eingeben im Terminal.
@@ -59,14 +59,14 @@ Anschließend könnt ihr schonmal folgendes testen:
 
 Wenn es irgendwo zwischen durch Probleme gibt, könnt ihr mir gerne eine E-Mail schicken: dario.heinsich@gmail.com
 
-##Tipps: 
+## Tipps: 
 
 Aktivierung der venv bei Windows: {{venv}}\Scripts\activate - hab ich mir sagen lassen ;-)
 
 Linux/Mac: source {{venv}}/bin/activate
 
 
-##Pakete Sublime
+## Pakete Sublime
 
 - Anaconda
 - Sublime Code Intel

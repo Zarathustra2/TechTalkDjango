@@ -18,10 +18,3 @@
 5. Abschluss, Verweis auf Projekt der Freitagsrunde: Community der Fakultät IV - 5Min
 
 
-
-TODO:
-
-- Setup PDF
-- Auflistung coole Django Erweiterungen & wichtige Packages
-- Sublime Project File
-- VS & Sublime Packages List

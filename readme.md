@@ -57,7 +57,7 @@ Anschließend könnt ihr schonmal folgendes testen:
 10. Jetzt öffnet euren Browser und ruft 127.0.0.1:8000 auf.
 11. Wenn alles geklappt habt, solltet ihr eine Willkommensseite sehen.
 
-Wenn es irgendwo zwischen durch Probleme gibt, könnt ihr mir gerne eine E-Mail schicken: dario.heinsich@gmail.com
+Wenn es irgendwo zwischen durch Probleme gibt, könnt ihr mir gerne eine E-Mail schicken: dario.heinisch@gmail.com
 
 ## Tipps: 
 

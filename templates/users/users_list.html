@@ -1,0 +1,21 @@
+<script>
+
+    $(document).ready(function () {
+        var table = $('#users_table').DataTable({
+            "bPaginate": true,
+            "bLengthChange": true,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "order": [[0, "desc"]],
+            rowReorder: {
+                selector: 'td:nth-child(2)'
+            },
+            responsive: true,
+            "iDisplayLength": 100,
+        });
+        table.rowReorder.disable();
+
+    });
+
+</script>

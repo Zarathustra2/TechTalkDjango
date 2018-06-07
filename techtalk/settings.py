@@ -25,10 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'msi#-#rwc2#hj50wtjrbit+6#k!v3j$pvv^o_li7io7$50akb5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if 'runserver' in sys.argv:
-    DEBUG = True
-else:
-    DEBUG = False
+DEBUG = True if 'runserver' in sys.argv else False
 
 ALLOWED_HOSTS = []
 
@@ -42,13 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    #my apps
-    
-    
-    
-    #third party
-    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +56,7 @@ ROOT_URLCONF = 'techtalk.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR + '/templates/',],
+        'DIRS': [os.path.join(BASE_DIR, "templates"),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,6 +133,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+#########ADDED##########
+
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

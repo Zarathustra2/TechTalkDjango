@@ -23,6 +23,13 @@
                         <li><a href="#">Hello</a></li>
                         <li class="divider"></li>
                         <li><a href="#">World</a></li>
+
+                        {% if request.user.is_authenticated %}
+                            <li>
+                            Hey {{ request.user.username }}
+                            </li>
+                        {% endif %}
+
                     </ul>
                 </li>
             </ul>

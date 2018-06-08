@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     
     #my apps
     'users',
-    'blog',
     
     # third party
     'bootstrap3',

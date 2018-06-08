@@ -97,9 +97,30 @@ Linux/Mac: source {{venv}}/bin/activate
 | update  | Updated ein Feld. Kann nur auf queryset aufgerufen werden | Articles.objects.filter(headline=“Clinton won Election“).update(headline=”Trump won Election”) |
 
 
+## Django Model Fields
 
-##Django Template Syntax
+| Field  | Beschreibung  | 
+| ------------- | ------------- |
+| IntegerField | ganze Zahlen |
+| PositivIntegerField | natürliche Zahlen |
+| DecimalField | Dezimal Zahlen |
+| CharField | Text, max_length required |
+| TextField | Text |
+| OneToOneField* | Beziehung zu einem anderen Model, ein User hat genau ein Profil und ein Profil genau einen User |
+| ForeignKey* | Beziehung zu einem anderen Model, ein User kann mehrer Autos haben, aber ein Auto nur einen User(Käufer) |
+| ManyToManyField* | Beziehung zu einem anderen Model, ein User kann mehrer Facebookposts liken und ein Facebookpost kann mehrere Likes haben |
+| DateTimeField | speichert ein Datum inklusive der Zeit |
+| DateField | speichert ein Datum exklusive der Zeit |
+| SlugField | Slugs |
 
+1. Alle Beziehungsfelder benötigen auch eine on_delete-Definition.
+2. Wenn ein Feld nicht ausgefüllt werden muss, dann null=True hinzufügen.
+3. Es ist möglich choices für einige Felder zu definieren.
+4. DateTimeField werden häufig mit auto_now_add=True oder auto_now=True benutzt, 
+    auto_now_add fügt nur das Datum beim ersten Erstellen des Objektes hinzu, auto_now aktualisert jedes mal die Zeit bei jedem Speichervorgang.
+
+
+## Django Template Syntax
 
 
  Method  | Beschreibung  | Code  |
@@ -109,21 +130,22 @@ Linux/Mac: source {{venv}}/bin/activate
 | if | if statement im template | {% if request.user.is_authenticated %} Welcome {% else %} Register {% endif %} |
 | with | Speichert Wert/Objekt in einer variable | {% with request.user.username as username %} Hi, {{ username }}, Wie geht es dir {{ username }} {% endwith %} |
 | for | For-Loop über ein Queryset | {% for user in users %} {{ user.username }} {% endfor %} |
+| load | lädt Templatetags & -filter in das Template, nötig um diese zu benutzen | {% load bootstrap3 %} |
 
 
 ## Django Terminal Commands
 
 base command: python3 manage.py some_command
 
-| Command | Beschreibung  | Code  |
-| ------------- | ------------- | ------------- |
-| runserver | startet den server auf 127.0.0.1:8000 | python3 manage.py runserver |
-| startapp | Erstellt eine neue App | python3 manage.py startapp users |
-| shell | Python-Shell mit Zugriff auf alle Modelle im Projekt | python3 manage.py shell |
-| makemigrations | Erstellt migration-files für die Datenbank | python3 manage.py makemigrations |
-| migrate | migration-files werden ausgeführt, Datenbank wird angepasst | python3 manage.py migrate |
-| createsuperuser | Erstellt einen Superuser, hat zugriff auf alles auf der Adminseite | python3 manage.py createsuperuser |
-| collectstatic | Sammelt alle static Files, und deployed sie z.B. zu Amazon  | python3 manage.py collectstatic |
+| Command | Beschreibung  |
+| ------------- | ------------- | 
+| runserver | startet den server auf 127.0.0.1:8000 |
+| startapp | Erstellt eine neue App |
+| shell | Python-Shell mit Zugriff auf alle Modelle im Projekt | 
+| makemigrations | Erstellt migration-files für die Datenbank | 
+| migrate | migration-files werden ausgeführt, Datenbank wird angepasst | 
+| createsuperuser | Erstellt einen Superuser, hat zugriff auf alles auf der Adminseite | 
+| collectstatic | Sammelt alle static Files, und deployed sie z.B. zu Amazon  | 
 
 
 ## Bootstrap
@@ -136,5 +158,7 @@ base command: python3 manage.py some_command
 | text-center | Zentriert Text, kann auch Text färben mit text-success z.B. |
 | table | Table class, häufig im Zusammenspiel mit 'table class="table borderless table-hover"' |
 | hidden-xs | display:none; für Smartphones, für tablets z.B. hidden-sm |
+
+
 
  

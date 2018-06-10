@@ -1,21 +1,79 @@
-<script>
+{% extends "base.html" %}
 
-    $(document).ready(function () {
-        var table = $('#users_table').DataTable({
-            "bPaginate": true,
-            "bLengthChange": true,
-            "bFilter": true,
-            "bInfo": false,
-            "bAutoWidth": false,
-            "order": [[0, "desc"]],
-            rowReorder: {
-                selector: 'td:nth-child(2)'
-            },
-            responsive: true,
-            "iDisplayLength": 100,
+{% load bootstrap3 %}
+
+{% block header %}
+    <h2>User List</h2>
+{% endblock header %}
+
+{% block content %}
+
+    {% include "sortabletabls_js_css.html" %}
+
+    <table class="table table-hover display nowrap" id="users_table" style="width:100%">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>User</th>
+            <th>Track</th>
+            <th>Semester</th>
+            <th>Profile Link</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+
+        {% comment %}
+
+        Wir loopen über unser Queryset drüber.
+        In unserer View hatten wir mithilfe von context_object_name den "Namen" des
+        Querysets auf "users" geändert, default ist "object_list".
+
+        Anschließend loopen wir drüber. Da User & Profile mit einem OneToOneField verbunden sind,
+        können wir auf das profile Object zugreifen, in dem wir einfach user.profile schreiben. Somit
+        haben wir auch zugriff auf alle Daten im Profile-Datenmodell.
+
+        user.profile.get_absolute_url ist eine Methode, die wir im Profile Datenmodell definiert haben.
+        Einfach unter users -> models.py -> Profile mal schauen.
+
+        Das ganze Javascript macht einfach unsere Tabelle schöner und anschaulicher auch für Mobileseiten.
+        Einfach den Browser kleiner machen, um den Effekt zu sehen.
+
+        {% endcomment %}
+
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.profile.track }}</td>
+                <td>{{ user.profile.semester }}</td>
+                <td><a href="{{ user.profile.get_absolute_url }}">Profile</a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script>
+
+        $(document).ready(function () {
+            var table = $('#users_table').DataTable({
+                "bPaginate": true,
+                "bLengthChange": true,
+                "bFilter": true,
+                "bInfo": false,
+                "bAutoWidth": false,
+                "order": [[0, "desc"]],
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                responsive: true,
+                "iDisplayLength": 100,
+            });
+            table.rowReorder.disable();
+
         });
-        table.rowReorder.disable();
 
-    });
+    </script>
 
-</script>
+{% endblock content %}

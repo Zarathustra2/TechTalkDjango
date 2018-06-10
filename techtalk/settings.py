@@ -72,6 +72,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
+                # Registration von Context Processoren, Pfad zur File angeben
+                
+                'users.context_processors.latest_registration',
+                'users.context_processors.amount_users',
+                
             ],
         },
     },

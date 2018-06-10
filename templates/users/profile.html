@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+    <h2>Profile</h2>
+{% endblock header %}
+
+
+{% block content %}
+
+    {% if update %}
+        <div class="alert alert-success">
+            <strong>Dein Profil wurde aktualisiert</strong>
+        </div>
+    {% endif %}
+
+    <form method="post" action="{% url 'users:profile' %}">
+
+        {% csrf_token %}
+        {% bootstrap_form form_1 %}
+
+        <button name="submit" class="btn btn-primary">Update!</button>
+
+    </form>
+
+{% endblock content %}

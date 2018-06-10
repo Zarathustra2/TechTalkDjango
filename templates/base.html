@@ -11,9 +11,23 @@
 
     <title>TechTalk</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    {% bootstrap_javascript %}
-    {% bootstrap_css %}
+
+    {% comment %}
+        Ein Bootstraptheme, es gibt noch 16 weitere. Das macht unsere Seite schöner, ohne dass wir CSS benutzen müssen.
+
+        Wenn du Lust hast, kannst du ja versuchen einzubauen, dass der User zwischen den 16 Themes eins auswählt und die Seite dann in seinem Theme erscheint.
+
+        Du brauchst ein:
+            - Model
+            - Form
+            - View
+            - Contextprocessor
+
+    {% endcomment %}
+
+    <link href="https://bootswatch.com/3/journal/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
@@ -28,14 +42,30 @@
         <div class="container-fluid">
 
             <div class="page-header">
-
                 {% block header %}{% endblock header %}
             </div>
 
             <div>
 
-                {% block content %}{% endblock content %}
+                {% comment %}
 
+                    Hier haben wir eine Navbar eingebaut. Col-lg-2 ist die Länge der navbar und Col-lg-10 ist die Länge unseres Contents.
+                    Zusammen ergibt das 12, siehe Bootstrap-Grid-System, 12 = 100%.
+
+                    Unsere Navbar würde aber aber auf mobile Setien stören, deswegen haben wir hidden-xs und hidden-sm.
+                    Somit ist die Navbar dort nicht mehr sichtbar.
+
+                    Da die Navbar mobile nicht mehr sichtbar ist, können wir den Content vergrößeren.
+                    Deswegen fügen wir ein Col-Sm-12 und Col-xs-12 hinzu.
+
+                {% endcomment %}
+                <div class="col-lg-2 sidenav hidden-xs hidden-sm">
+                    {% include "left_sidebar.html" %}
+                </div>
+
+                <div class="col-lg-10 col-xs-12 col-sm-12">
+                    {% block content %}{% endblock content %}
+                </div>
             </div>
         </div>
     </div>

@@ -8,19 +8,37 @@
 
 {% block content %}
 
-    <div class="col-lg-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                TechTalk Django
-            </div>
-            <div class="panel-body">
-                Willkommen beim TechTalk der Fakultät 4. Heute beschäftigen wir uns mit Django & Bootstrap.
-            </div>
+    <div class="col-lg-12">
+        <div class="col-lg-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    TechTalk Django
+                </div>
+                <div class="panel-body">
+                    Willkommen beim TechTalk der Fakultät 4. Heute beschäftigen wir uns mit Django & Bootstrap.
+                </div>
 
-            <div class="panel-footer">
-                Wenn ihr Probleme habt beim Setup, einfach melden.
+                <div class="panel-footer">
+                    Wenn ihr Probleme habt beim Setup, einfach melden.
+                </div>
             </div>
         </div>
+        {% if request.user.is_authenticated %}
+            <div class="col-lg-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        Edit your Profile
+                    </div>
+                    <div class="panel-body">
+                        Your Profile <a href="{% url 'users:profile' %}">editieren</a>
+                    </div>
+                    <div class="panel-footer">
+                        This is a footer
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
     </div>
 
 {% endblock content %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+
+{% block header %}
+    <h2>Profile von {{ profile.user }}</h2>
+{% endblock header %}
+
+{% block content %}
+
+    <div class="panel-primary">
+        <div class="panel-heading">
+            {{ profile.user }}
+        </div>
+        <div class="panel-body">
+            Track: {{ profile.track }} | Semester: {{ profile.semester }}
+            <hr>
+
+            Beschreibung: {{ profile.description|linebreaksbr }}
+        </div>
+        <div class="panel-footer">
+            Created: {{ profile.created }}
+        </div>
+    </div>
+
+{% endblock content %}

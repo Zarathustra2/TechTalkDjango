@@ -1,3 +1,37 @@
+
+
+# Fertiges Repo
+
+Ich habe das Repo mal aktualisiert. Folgende Dateien wurden verändert/hinzugefügt mit Kommentaren:
+
+1. settings.py, siehe unter dem Punkt TEMPLATE
+2. useres directory
+    1. views.py, neue views
+    2. urls.py, neue urls mit Parametern
+    3. context_processory.py, neue File. Ermöglicht globale Variablen/Objekte für alle Templates
+    4. models.py, model aktualisiert
+3. templates
+    1. users
+        1. public_profile.html, neue File, Ansicht eines bestimmten Profiles eines Users
+        2. users_list.html, Tabelle mit allen Usern
+    2. base.html, verändert, jetzt mit Sidebar, bootstrap_theme hinzugefügt mit Übungsaufgabe
+    3. left_sidebar.html, Code für die Sidebar in base.html
+    
+ Bevor ihr das Projekt zum Laufen bringt, bitte ```python3 manage.py migrate``` in 
+ eurem Terminal eingeben. 
+
+Bei Verständnisfragen einfach eine Mail an mich. 
+Hoffe ihr hattet Spaß, vielen Dank für's kommen und bis zum nächsten Mal! :)
+
+#### Was könntet ihr jetzt noch einbauen?
+
+1. Verhindern, dass registrierte User auf die register-page zugreifen können
+2. Eine View bauen, die einem zu einem random Profile weiterleitet
+3. Die Übungsaufgabe, siehe base.html
+4. Neues Datenmodell, das Lieblingsfussballteams speichert und Lieblingssportler
+
+
+
 # TechTalk
 
 Hey, bevor du zum TechTalk-django kommst, würde ich dich bitten, schonmal folgende Dinge zu testen & beachten.
